@@ -1,4 +1,4 @@
-  =>  Template Name    : Titanium - Clinic Website Template
+  =>  Template Name    : CareFusion365
 
   =>  Template Link    : https://htmlcodex.com/clinic-website-template
 
