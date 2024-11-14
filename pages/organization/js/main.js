@@ -6,11 +6,11 @@ function generateRandomString() {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     for (let i = 0; i < 5; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      result += characters.charAt(randomIndex);
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        result += characters.charAt(randomIndex);
     }
     return result;
-  }
+}
 
 function showToast(type, message) {
     if (type == "success") {
@@ -27,8 +27,16 @@ document.getElementById("add-organization-form").addEventListener("submit", asyn
 
     let organization_name = document.getElementById("organization-name").value;
     let organization_email = document.getElementById("organization-email").value;
-    let organization_alias = document.getElementById("organization-alias").value;
+
+    //work on logic for https
     let organization_website = document.getElementById("organization-website").value;
+
+    console.log("ORGANIZATION", organization_website);
+
+    if (!organization_website.startsWith("http") || !organization_website.startsWith("https")) {
+        console.log("startsWith")
+        organization_website = "https://" + organization_website
+    }
 
     let address = document.getElementById("address").value;
     let contact = document.getElementById("contact").value;
@@ -48,8 +56,7 @@ document.getElementById("add-organization-form").addEventListener("submit", asyn
         let request_body = {
             admin: admin_auth_data,
             name: organization_name,
-            alias: organization_alias,
-            //website: organization_website,
+            website: organization_website,
             email: organization_email,
             type: "healthcare_provider",
             description,
@@ -58,8 +65,8 @@ document.getElementById("add-organization-form").addEventListener("submit", asyn
                 {
                     organizational_contact_telecom: [
                         {
-                            //value: contact,
-                            use: "home"
+                            value: contact,
+                            use: "work"
                         }
                     ],
                     // purpose: "strings",
@@ -68,36 +75,8 @@ document.getElementById("add-organization-form").addEventListener("submit", asyn
                     // period: "strings"
                 }
             ],
-            organization_qualification: [
-                {
-                    code: generateRandomString(),
-                    period: generateRandomString(),
-                    issuer: generateRandomString()
-                }
-            ],
-            location: [
-                {
-                    // contact: [
-                    //     {
-                    //         website: "http://localhost:8000/api/docs/#/organizations/organizations_creates",
-                    //         email: "users@example.com",
-                    //         phone: "strings",
-                    //         fax: "strings"
-                    //     }
-                    // ],
-                    name: address,
-                    status: "active",
-                    operational_status: "closed",
-                    alias: generateRandomString(),
-                    description: generateRandomString(),
-                    mode: "instance",
-                    address: generateRandomString(),
-                    form: "building",
-                    position: generateRandomString(),
-                    hours_of_operation: generateRandomString()
-
-                }
-            ],
+            organization_qualification: [],
+            location: [],
         }
 
         await axios.post("http://localhost:8000/api/organizations/", request_body)
