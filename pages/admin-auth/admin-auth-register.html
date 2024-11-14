@@ -108,7 +108,7 @@
 
     <div class="admin-auth-form-container">
         <div class="admin-auth-form-box">
-            <form class="admin-auth-form" id="auth-register-form">
+            <form class="admin-auth-form" id="admin-auth-register-form">
                 <h5>Create Administrator Account</h5>
 
                 <div class="two-grid">
@@ -123,16 +123,28 @@
                     </div>
                 </div>
 
-                <div class="mb-1">
-                    <label class="admin-auth-label" id="mobile-label">Mobile <span></span> :</label>
-                    <input class="admin-auth-input" id="mobile" name="mobile" />
+                <div class="mb-4">
+                    <label class="admin-auth-label" id="dob-label">Date of birth: <span></span> :</label>
+                    <input type="date" class="admin-auth-input" id="dob" name="dob" />
                 </div>
+
+                <p  class="mb-4"> </p>
+
+
                 <div class="mb-1">
                     <label class="admin-auth-label" id="email-label">Email <span></span> :</label>
                     <input type="email" class="admin-auth-input" id="email" name="email" />
                     <p class="error-text" id="email-error-text" hidden>Enter valid email</p>
                 
                 </div>
+
+                <div class="mb-1">
+                    <label class="admin-auth-label" id="username-label">Username <span></span> :</label>
+                    <input class="admin-auth-input" id="username" name="username" />
+                </div>
+
+
+                
                 <div class="mb-1">
                     <label class="admin-auth-label" id="password-label">Password <span></span> :</label>
                     <input type="password" class="admin-auth-input" id="password" name="password" />
@@ -142,7 +154,7 @@
 
                 <p class="mb-4"></p>
                 <button type="submit" class="admin-auth-button mb-2">Create Account</button>
-                <p class="admin-auth-login-route">Already have an admin account? Login <a class="" href="#">here</a></p>
+                <p class="admin-auth-login-route">Already have an admin account? Login <a class="" href="/pages/admin-auth/admin-auth-login.html">here</a></p>
             </form>
         </div>
 
