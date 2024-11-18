@@ -3,7 +3,7 @@
     height: 65vh; 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 4rem 15rem;
+    padding: 1rem 15rem;
 
 }
 

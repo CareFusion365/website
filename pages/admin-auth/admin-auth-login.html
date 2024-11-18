@@ -108,53 +108,28 @@
 
     <div class="admin-auth-form-container">
         <div class="admin-auth-form-box">
-            <form class="admin-auth-form" id="admin-auth-register-form">
-                <h5>Create Administrator Account</h5>
+            <form class="admin-auth-form" id="admin-auth-login-form">
+                <h5>Log into Administrator Account</h5>
 
-                <div class="two-grid">
-                    <div class="mb-1">
-                        <label class="admin-auth-label" id="firstname-label">Firstname <span></span> :</label>
-                        <input class="admin-auth-input" id="firstname" name="firstname" />
-                    </div>
-
-                    <div class="mb-1">
-                        <label class="admin-auth-label" id="lastname-label">Lastname:</label>
-                        <input class="admin-auth-input" id="lastname" name="lastname" />
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <label class="admin-auth-label" id="dob-label">Date of birth: <span></span> :</label>
-                    <input type="date" class="admin-auth-input" id="dob" name="dob" />
-                </div>
-
-                <p  class="mb-4"> </p>
-
-
+              
                 <div class="mb-1">
-                    <label class="admin-auth-label" id="email-label">Email <span></span> :</label>
-                    <input type="email" class="admin-auth-input" id="email" name="email" />
-                    <p class="error-text" id="email-error-text" hidden>Enter valid email</p>
+                    <label class="admin-auth-label" id="email-label-login">Email <span></span> :</label>
+                    <input type="email" class="admin-auth-input" id="email-login" name="email-login" />
+                    <p class="error-text" id="email-error-text-login" hidden>Enter valid email</p>
                 
                 </div>
 
-                <div class="mb-1">
-                    <label class="admin-auth-label" id="username-label">Username <span></span> :</label>
-                    <input class="admin-auth-input" id="username" name="username" />
-                </div>
-
-
                 
                 <div class="mb-1">
-                    <label class="admin-auth-label" id="password-label">Password <span></span> :</label>
-                    <input type="password" class="admin-auth-input" id="password" name="password" />
+                    <label class="admin-auth-label" id="password-label-login">Password <span></span> :</label>
+                    <input type="password" class="admin-auth-input" id="password-login" name="password-login" />
                 </div>
 
-                <p class="error-text" id="error-text" hidden>All fields are required</p>
+                <p class="error-text" id="error-text-login" hidden>All fields are required</p>
 
                 <p class="mb-4"></p>
-                <button type="submit" class="admin-auth-button mb-2">Create Account</button>
-                <p class="admin-auth-login-route">Already have an admin account? Login <a class="" href="/pages/admin-auth/admin-auth-login.html">here</a></p>
+                <button type="submit" class="admin-auth-button mb-2">Login</button>
+                <p class="admin-auth-login-route">Don't have an admin account? Create one <a class="" href="/pages/admin-auth/admin-auth-register.html">here</a></p>
             </form>
         </div>
 
@@ -162,7 +137,7 @@
         <div>
             <div>
                 <div class="pill">CareFusion</div>
-                <p class="admin-auth-left-head-text">Register your administrator</p>
+                <p class="admin-auth-left-head-text">Log into your account</p>
                 <p class="admin-auth-left-desc-text">Lorem Ipsum is simply dummy text of the printing and typesetting
                     industry. Lorem Ipsum has been the
                     industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
@@ -263,7 +238,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Add Toastr JavaScript library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- Template Javascript -->
     <script src="../../js/main.js"></script>
     <script src ="./js/main.js"></script>
