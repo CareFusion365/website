@@ -45,7 +45,11 @@ if (authRegisterFormElement) {
         } else {
             sessionStorage.setItem("authData", JSON.stringify({ first_name: firstname, last_name: lastname, username, email, password,date_of_birth:dob }));
             showToast("success", "Admin account created successfully")
-            window.location.href = "/pages/organization/add-organization.html"
+
+            setTimeout(()=>{
+                window.location.href = "/pages/organization/add-organization.html"
+            },2000)
+
 
         }
 
@@ -83,7 +87,9 @@ if (authLoginFormElement) {
                         sessionStorage.setItem("refresh_token", response.data.refresh)
                         sessionStorage.setItem("access_token", response.data.access)
 
-                        window.location.href = "/pages/organization/organization-review.html"
+                        setTimeout(()=>{
+                            window.location.href = "/pages/organization/organization-review.html"
+                        }, 2000)
 
 
                     }
