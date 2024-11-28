@@ -45,6 +45,7 @@ if (authRegisterFormElement) {
         } else {
             sessionStorage.setItem("authData", JSON.stringify({ first_name: firstname, last_name: lastname, username, email, password,date_of_birth:dob }));
             showToast("success", "Admin account created successfully")
+
             window.location.href = "/pages/organization/add-organization.html"
 
         }
