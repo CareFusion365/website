@@ -86,9 +86,7 @@ document.getElementById("add-organization-form").addEventListener("submit", asyn
                     sessionStorage.setItem("authData", JSON.stringify({}));
                     showToast("success", "Admin account created successfully")
 
-                    setTimeout(()=>{
-                        window.location.href = "/pages/organization/organization-review.html"
-                    }, 2000)
+                    window.location.href = "/pages/organization/organization-review.html"
                 }
             })
             .catch(error => {

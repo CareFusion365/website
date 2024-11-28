@@ -46,10 +46,7 @@ if (authRegisterFormElement) {
             sessionStorage.setItem("authData", JSON.stringify({ first_name: firstname, last_name: lastname, username, email, password,date_of_birth:dob }));
             showToast("success", "Admin account created successfully")
 
-            setTimeout(()=>{
-                window.location.href = "/pages/organization/add-organization.html"
-            },2000)
-
+            window.location.href = "/pages/organization/add-organization.html"
 
         }
 
@@ -87,9 +84,7 @@ if (authLoginFormElement) {
                         sessionStorage.setItem("refresh_token", response.data.refresh)
                         sessionStorage.setItem("access_token", response.data.access)
 
-                        setTimeout(()=>{
-                            window.location.href = "/pages/organization/organization-review.html"
-                        }, 2000)
+                        window.location.href = "/pages/organization/organization-review.html"
 
 
                     }
