@@ -1,0 +1,29 @@
+@font-face {
+  font-family: "Ginto";
+  src:
+    url("/assets/ginto-font/Ginto-Regular.woff2") format("woff2"),
+    url("/assets/ginto-font/Ginto-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ginto";
+  src:
+    url("/assets/ginto-font/Ginto-Medium.woff2") format("woff2"),
+    url("/assets/ginto-font/Ginto-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Ginto";
+  src:
+    url("/assets/ginto-font/Ginto-Bold.woff2") format("woff2"),
+    url("/assets/ginto-font/Ginto-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
