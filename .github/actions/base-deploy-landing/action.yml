@@ -1,0 +1,58 @@
+name: "Base Deploy Landing"
+description: "Install dependencies and setup environment for Landing deployment"
+inputs:
+  environment:
+    description: "Environment to pull from Vercel"
+    required: true
+  prod-flag:
+    description: "Flag to indicate if production build and deploy"
+    required: true
+  vercel-token:
+    description: "Vercel token"
+    required: true
+  vercel-org-id:
+    description: "Vercel organization ID"
+    required: true
+  vercel-project-id:
+    description: "Vercel project ID"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+    - run: npm install -g yarn@1.22.19
+      shell: bash
+    - run: npm install --global vercel@33.2.0
+      shell: bash
+
+    - run: |
+        export VERCEL_ORG_ID=${{ inputs.vercel-org-id }}
+        export VERCEL_PROJECT_ID=${{ inputs.vercel-project-id }}
+        vercel pull --yes --environment=${{ inputs.environment }} --token=${{ inputs.vercel-token }}
+      shell: bash
+
+    - name: Copy Vercel environments
+      run: |
+        if [ "${{ inputs.prod-flag }}" = "--prod" ]; then
+          cp .vercel/.env.production.local ./.env
+        else
+          cp .vercel/.env.development.local ./.env
+        fi
+      shell: bash
+
+    - name: Import env file
+      uses: cardinalby/export-env-action@v2
+      with:
+        envFile: .env
+
+    - name: Install dependencies
+      run: yarn install
+      shell: bash
+
+    - run: |
+        vercel build ${{ inputs.prod-flag }} --token=${{ inputs.vercel-token }}
+      shell: bash
+
+    - run: |
+        vercel deploy --prebuilt ${{ inputs.prod-flag }} --token=${{ inputs.vercel-token }}
+      shell: bash
